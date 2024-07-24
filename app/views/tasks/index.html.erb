@@ -1,5 +1,6 @@
 <h1>All Tasks</h1>
 <%# list all tasks %>
 <% @tasks.each do |task|%>
-  <li><%= task.name %></li>
+  <li><%= task.title %></li>
+  <%= link_to "Edit", task_path(task) %>
 <% end %>

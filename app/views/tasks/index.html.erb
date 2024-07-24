@@ -1,6 +1,10 @@
 <h1>All Tasks</h1>
+<%# Add task button %>
+<%= link_to "Add Task", new_task_path %>
 <%# list all tasks %>
 <% @tasks.each do |task|%>
   <li><%= task.title %></li>
-  <%= link_to "Edit", task_path(task) %>
+  <li><%= task.details %></li>
+  <%= link_to "Edit", edit_task_path(task) %>
+  <%= link_to "Delete", task_path(task) %>
 <% end %>

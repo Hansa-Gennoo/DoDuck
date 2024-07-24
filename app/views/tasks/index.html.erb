@@ -1,10 +1,23 @@
-<h1>All Tasks</h1>
-<%# Add task button %>
-<%= link_to "Add Task", new_task_path %>
+<div class="container">
+<div class="header">
+  <h1>All Tasks</h1>
+</div>
+
+<div class="button-new">
+  <%# Add task button %>
+  <%= render "form", task: @task %>
+  <%# <%= link_to "Add Task", new_task_path %>
+</div>
+
+<div class="all-tasks">
+  <% @tasks.each do |task|%>
+    <h6><%= task.title %>  </h6>
+    <h6><%= task.details %></h6>
+
+    <%= link_to "Edit", edit_task_path(task) %>
+    <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</div>
 <%# list all tasks %>
-<% @tasks.each do |task|%>
-  <li><%= task.title %></li>
-  <li><%= task.details %></li>
-  <%= link_to "Edit", edit_task_path(task) %>
-  <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
+
+</div>

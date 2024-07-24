@@ -10,6 +10,7 @@
 </div>
 
 <div class="all-tasks">
+  <%# list all tasks %>
   <% @tasks.each do |task|%>
     <h6><%= task.title %>  </h6>
     <h6><%= task.details %></h6>
@@ -18,6 +19,5 @@
     <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
 </div>
-<%# list all tasks %>
 
 </div>

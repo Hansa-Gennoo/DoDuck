@@ -4,8 +4,14 @@
 </div>
 
 <div class="button-new">
+ <div data-controller="toggle" class="mt-5">
+   <button data-action="click->toggle#fire" class="btn btn-outline-primary btn-sm">Add A Task</button>
+    <div data-toggle-target="togglableElement" class="d-none">
+      <%= render "form", task: @task %>
+    </div>
+  </div>
   <%# Add task button %>
-  <%= render "form", task: @task %>
+  <%# <%= render "form", task: @task %>
   <%# <%= link_to "Add Task", new_task_path %>
 </div>
 
@@ -14,6 +20,7 @@
   <% @tasks.each do |task|%>
     <h6><%= task.title %>  </h6>
     <h6><%= task.details %></h6>
+
 
     <%= link_to "Edit", edit_task_path(task) %>
     <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
